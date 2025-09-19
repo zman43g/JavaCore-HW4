@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CalculatorController {
-    private final CalculatorService calculatorService = new CalculatorService();
+    private final CalculatorService calculatorService;
 
-    /*public CalculatorController(CalculatorService calculatorService) {
+    public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
-    }*/
+    }
 
     @GetMapping(path = "/calculator")
     public String firstPage() {
@@ -24,17 +24,17 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "calculator/minus")
-    public String num1MinusNum2(@RequestParam(value = "num1",required = false) Integer number1, @RequestParam(value = "num2",required = false) Integer number2) {
+    public String num1MinusNum2(@RequestParam(value = "num1", required = false) Integer number1, @RequestParam(value = "num2", required = false) Integer number2) {
         return calculatorService.minusOutput(number1, number2);
     }
 
     @GetMapping(path = "calculator/multiply")
-    public String num1MultiplyNum2(@RequestParam(value = "num1",required = false) Integer number1, @RequestParam(value = "num2",required = false) Integer number2) {
+    public String num1MultiplyNum2(@RequestParam(value = "num1", required = false) Integer number1, @RequestParam(value = "num2", required = false) Integer number2) {
         return calculatorService.multiplyOutput(number1, number2);
     }
 
     @GetMapping(path = "calculator/divide")
-    public String num1DivideNum2(@RequestParam(value = "num1",required = false) Integer number1, @RequestParam(value = "num2",required = false) Integer number2) {
+    public String num1DivideNum2(@RequestParam(value = "num1", required = false) Integer number1, @RequestParam(value = "num2", required = false) Integer number2) {
         return calculatorService.divideOutput(number1, number2);
     }
 
